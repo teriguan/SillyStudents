@@ -8,6 +8,7 @@
 
 /**
  * The Student class represents a student object with different attributes.
+ * The attributes includes surname, first name, email addresses and grades.
  *
  * @author Teresa
  */
@@ -26,8 +27,8 @@ class Student {
     /**
      * Adds an email to the Student email attribute.
      * 
-     * @param type $which Index where the email is stored
-     * @param type $address Email address being store in Student object
+     * @param type $which Index where the email is stored.
+     * @param type $address Email address being store in Student object.
      */
     function add_email($which,$address) {
         $this->emails[$which] = $address;
@@ -50,8 +51,9 @@ class Student {
      */
     function average() {
         $total = 0;
-        foreach ($this->grades as $value)
+        foreach ($this->grades as $value) {
             $total += $value;
+        }
         return $total / count($this->grades);
     }
     
@@ -64,9 +66,11 @@ class Student {
     function toString() {
         $result = $this->first_name . ' ' . $this->surname;
         $result .= ' (' . $this->average() . ")\n";
-        foreach($this->emails as $which=>$what)
+        foreach ($this->emails as $which => $what) {
             $result .= $which . ': ' . $what . "\n";
+        }
         $result .= "\n";
         return '<pre>' . $result . '</pre>';
     }
 }
+
